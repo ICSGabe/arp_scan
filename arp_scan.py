@@ -1,5 +1,10 @@
 from scapy.all import ARP, Ether, srp
 from mac_vendor_lookup import MacLookup
+import pyfiglet
+
+ascii_banner = pyfiglet.figlet_format("ICS_Gabe")
+print(ascii_banner)
+
 
 #IP Address for the destination subnet. 
 #print("Enter subnet: ") 
@@ -19,7 +24,7 @@ ether = Ether(dst="ff:ff:ff:ff:ff:ff")
 packet = ether/arp
 
 # you can increase timeout value for more accurate results. The srp() method in scapy returns a (sent_packet, received_packet) pair
-result = srp(packet, timeout=3)[0]
+result = srp(packet, timeout=20)[0]
 
 # create an empty list to populate with clients
 clients = []
